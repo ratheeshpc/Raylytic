@@ -1,0 +1,40 @@
+version: '3.3'
+
+services:
+   fhir-server-db:
+     image: postgres
+     volumes:
+       - db_data:/var/lib/postgress
+     restart: always
+     environment:
+       POSTGRES_PASSWORD: admin1234
+       POSTGRES_USER: admin
+       POSTGRES_DB: hapi
+       PGDATA: /var/lib/postgress
+
+   fhir-server:
+     depends_on:
+       - fhir-server-db
+     image: hapi-fhir/hapi-fhir-jpaserver-starter
+     environment:
+       profiles.active: r4
+       fhir_version: R4
+       spring.datasource.url: 'jdbc:postgresql://fhir-server-db:5432/hapi'
+       spring.datasource.username: admin
+       spring.datasource.password: admin1234
+       spring.datasource.driverClassName: org.postgresql.Driver
+     ports:
+       - "0.0.0.0:8080:8080"
+     restart: always
+
+   fhir-patient-generator:
+     depends_on:
+       - fhir-server
+     image: conceptant/synthea-fhir
+     environment:
+       SYNTHEA_SEED: 4
+       SYNTHEA_SIZE: 4
+       FHIR_URL: "http://fhir-server:8080"
+
+volumes:
+    db_data: {}

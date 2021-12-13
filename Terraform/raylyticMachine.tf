@@ -1,6 +1,6 @@
 resource "aws_instance" "RaylyticProject" {
   ami                    = "ami-0567e0d2b4b2169ae"
-  instance_type          = "t3.large"
+  instance_type          = "t3.large" # t3.2xlarge
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.all-sg-raylytic-project.id]
   root_block_device {

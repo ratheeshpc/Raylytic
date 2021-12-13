@@ -6,6 +6,7 @@ This project inclues docker compose file, Make file to start stop application:
 - Make sure docker installed
 - Make sure "make" installed
 - Make sure git installed
+- `We are achiving all these pre-requisite while creating the machine with Terraform.`
 
 
 ## Procedure

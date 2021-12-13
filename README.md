@@ -9,11 +9,12 @@ This project inclues docker compose file, Make file to start stop application:
 
 
 ## Procedure
-- Clone this repo
-- Change directory to repo folder
+- Clone this repo [git clone https://github.com/ajaisreenilayam/Raylytic.git]
+
+- Change directory to repo folder [cd Raylytic]
 - run 
-  - "make start" starts all services
-  - "make stops" stops all services
+  - "make start" starts all services [Start all the services]
+  - "make stops" stops all services [Stop all the services]
 
 ## Points to note
 - We could use image hapiproject/hapi:latest as well 

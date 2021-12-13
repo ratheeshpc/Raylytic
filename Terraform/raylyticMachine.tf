@@ -2,7 +2,7 @@ resource "aws_instance" "RaylyticProject" {
   ami                    = "ami-0567e0d2b4b2169ae"
   instance_type          = "t3.large"
   key_name               = var.key_name
-  vpc_security_group_ids = [aws_security_group.all-sg-syna-project.id]
+  vpc_security_group_ids = [aws_security_group.all-sg-raylytic-project.id]
   root_block_device {
     volume_type           = "gp2"
     volume_size           = "20"
@@ -47,7 +47,7 @@ resource "aws_instance" "RaylyticProject" {
 
 
 
-resource "aws_security_group" "all-sg-syna-project" {
+resource "aws_security_group" "all-sg-raylytic-project" {
   name        = "RaylyticBuildRequiredPorts"
   description = "Allowing all ports required for Syna Server"
   dynamic "ingress" {

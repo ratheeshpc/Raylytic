@@ -12,6 +12,3 @@ stop:
 	echo "Stopping Server"
 	docker-compose down
 	rm -rf cd hapi-fhir-jpaserver-starter
-start_bg:
-	echo "Starting Server in background mode"
-

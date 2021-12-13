@@ -4,13 +4,13 @@ services:
    fhir-server-db:
      image: postgres
      volumes:
-       - db_data:/var/lib/postgress
+       - db_data:/var/lib/postgres
      restart: always
      environment:
        POSTGRES_PASSWORD: admin1234
        POSTGRES_USER: admin
        POSTGRES_DB: hapi
-       PGDATA: /var/lib/postgress
+       PGDATA: /var/lib/postgres
 
    fhir-server:
      depends_on:
